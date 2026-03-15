@@ -2,13 +2,17 @@
 
 static uint32_t API_get_tick(void)
 {
+    // 你的获取ms的函数,下面是STM32的样例
     return HAL_GetTick();
 }
 
 static bool API_read_button(BUTTON* handle)
 {
+    // 你的按钮有效的返回,下面是STM32的样例
     return ((GPIOB->IDR) & handle->_pin) ? true : false;
 }
+
+/*=================================================================================================*/
 
 static bool read_button(BUTTON* handle)
 {
