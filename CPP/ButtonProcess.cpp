@@ -2,13 +2,17 @@
 
 bool BUTTON::API_read_button(void)
 {
+    // 你的获取按键状态的返回,以下是ESP32的样例
     return *_buttonIO;
 }
 
 uint32_t BUTTON::API_get_tick(void)
 {
+    // 你的获取ms的函数,以下是ESP32的样例
     return esp_timer_get_time() / 1000;
 }
+
+/*=============================================================================================================================*/
 
 void BUTTON::API_delay(uint32_t ms)
 {
@@ -16,8 +20,6 @@ void BUTTON::API_delay(uint32_t ms)
 
     while(API_get_tick() - current_time <= ms);
 }
-
-/*=============================================================================================================================*/
 
 BUTTON::BUTTON(bool* buttonIO,
              bool use_doublePress,
